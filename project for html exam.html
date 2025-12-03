@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BlinkIt - Basic Clone</title>
+  <style>
+    /* Simple, minimal BlinkIt-like homepage (educational) */
+    :root{--accent:#ff3b30;--muted:#666;--maxw:1000px;font-family:Arial,Helvetica,sans-serif}
+    *{box-sizing:border-box}
+    body{margin:0;background:#f8f8f8;color:#111}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+
+    /* Header */
+    header{background:#fff;padding:12px 0;border-bottom:1px solid #eee}
+    .top{display:flex;align-items:center;gap:12px}
+    .logo{font-weight:800;color:var(--accent);font-size:20px}
+    .search{flex:1;display:flex}
+    .search input{flex:1;padding:10px;border:1px solid #e3e3e3;border-radius:6px 0 0 6px}
+    .search button{padding:10px 14px;border:none;background:var(--accent);color:#fff;border-radius:0 6px 6px 0;cursor:pointer}
+    .cart{margin-left:12px;font-size:14px}
+
+    /* Categories */
+    .cats{display:flex;gap:8px;padding:12px 0;overflow:auto}
+    .cat{background:#fff;padding:8px 12px;border-radius:8px;border:1px solid #eee;white-space:nowrap}
+
+    /* Hero */
+    .hero{display:flex;gap:16px;margin:16px 0}
+    .banner{flex:1;background:linear-gradient(90deg,#ffd6d6,#ffefef);padding:18px;border-radius:10px}
+    .banner h1{margin:0;font-size:20px}
+    .banner p{margin:6px 0;color:var(--muted)}
+    .quick{width:260px;background:#fff;padding:12px;border-radius:10px;border:1px solid #eee}
+
+    /* Product grid */
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .card{background:#fff;padding:10px;border-radius:8px;border:1px solid #f0f0f0;text-align:center}
+    .card img{width:100%;height:120px;object-fit:contain;background:#fafafa;border-radius:6px}
+    .title{font-size:14px;height:36px;overflow:hidden}
+    .price{font-weight:700;margin:6px 0}
+    .btn{display:inline-block;padding:8px 10px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none}
+
+    /* Footer */
+    footer{margin-top:18px;padding:18px 0;color:var(--muted);font-size:13px}
+
+    /* Responsive */
+    @media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}.quick{display:none}}
+    @media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}.hero{flex-direction:column}.search input{padding:8px}.logo{font-size:18px}}
+    @media(max-width:420px){.grid{grid-template-columns:1fr}.cats{gap:6px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container top">
+      <div class="logo">BlinkIt</div>
+      <div class="search" role="search">
+        <input placeholder="Search for groceries, fruits, snacks..." aria-label="search" />
+        <button>Search</button>
+      </div>
+      <div class="cart">Cart (0)</div>
+    </div>
+    <div class="container">
+      <div class="cats" aria-label="categories">
+        <div class="cat">Fruits</div>
+        <div class="cat">Vegetables</div>
+        <div class="cat">Dairy</div>
+        <div class="cat">Snacks</div>
+        <div class="cat">Beverages</div>
+        <div class="cat">Household</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="banner">
+        <h1>Get groceries delivered in minutes</h1>
+        <p>Quick delivery • Fresh produce • Great prices</p>
+        <div style="margin-top:12px"><a class="btn" href="#">Shop Now</a></div>
+      </div>
+      <aside class="quick">
+        <h3>Quick essentials</h3>
+        <ul style="padding-left:16px;color:var(--muted)">
+          <li>Milk</li>
+          <li>Maggi</li>
+          <li>Eggs</li>
+          <li>Bananas</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section>
+      <h2>Popular near you</h2>
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><rect width='100%' height='100%' fill='%23fafafa'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='18'>Image</text></svg>" alt="product" />
+          <div class="title">Fresh Milk - 1L</div>
+          <div class="price">₹49</div>
+          <a class="btn" href="#">Add</a>
+        </div>
+
+        <div class="card">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><rect width='100%' height='100%' fill='%23fafafa'/></svg>" alt="product" />
+          <div class="title">Ripe Bananas (6 pcs)</div>
+          <div class="price">₹40</div>
+          <a class="btn" href="#">Add</a>
+        </div>
+
+        <div class="card">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><rect width='100%' height='100%' fill='%23fafafa'/></svg>" alt="product" />
+          <div class="title">Maggi 2-Minute Noodles</div>
+          <div class="price">₹12</div>
+          <a class="btn" href="#">Add</a>
+        </div>
+
+        <div class="card">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><rect width='100%' height='100%' fill='%23fafafa'/></svg>" alt="product" />
+          <div class="title">Bread (400g)</div>
+          <div class="price">₹35</div>
+          <a class="btn" href="#">Add</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p style="margin:12px 0;color:var(--muted)">This is a very basic BlinkIt-like homepage clone for a college project. Replace images and text as needed. © 2025</p>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
